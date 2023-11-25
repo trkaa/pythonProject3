@@ -1,47 +1,46 @@
 from database import DataBase
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from .callback import NavigationCB
-from aiogram.types import Message, CallbackQuery
+
 
 db = DataBase()
 
 
-def navikeyboard(scene_pictures: list, scene_texts: list, cur_id: int):
+def navikeyboard(scene_pictures: list, scene_texts: list, cur_id: int, scene_id: int):
     keyboard = InlineKeyboardBuilder()
     id_len = int(len(scene_texts))
+    if scene_id == 1:
+        if cur_id == id_len:
+            next_id = int(1)
+            id_picture_f = str(scene_pictures[0])
+            id_text_f = str(scene_texts[0])
+            prev_id = cur_id - 1
+            id_picture_p = str(scene_pictures[cur_id - 2])
+            id_text_p = str(scene_texts[cur_id - 2])
+            button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
+            button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
 
-    if cur_id == id_len:
-        next_id = int(1)
-        id_picture_f = str(scene_pictures[0])
-        id_text_f = str(scene_texts[0])
-        prev_id = cur_id - 1
-        id_picture_p = str(scene_pictures[cur_id - 2])
-        id_text_p = str(scene_texts[cur_id - 2])
-        button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
-        button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
+        elif cur_id == int(1):
+            prev_id = id_len
+            id_picture_p = str(scene_pictures[-1])
+            id_text_p = str(scene_texts[-1])
+            next_id = cur_id + 1
+            id_picture_f = str(scene_pictures[cur_id])
+            id_text_f = str(scene_texts[cur_id])
+            button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
+            button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
 
-    elif cur_id == int(1):
-        prev_id = id_len
-        id_picture_p = str(scene_pictures[-1])
-        id_text_p = str(scene_texts[-1])
-        next_id = cur_id + 1
-        id_picture_f = str(scene_pictures[cur_id])
-        id_text_f = str(scene_texts[cur_id])
-        button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
-        button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
+        else:
+            next_id = cur_id + 1
+            prev_id = cur_id - 1
+            id_picture_f = str(scene_pictures[cur_id])
+            id_text_f = str(scene_texts[cur_id])
+            id_picture_p = str(scene_pictures[cur_id - 2])
+            id_text_p = str(scene_texts[cur_id - 2])
+            button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
+            button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
 
-    else:
-        next_id = cur_id + 1
-        prev_id = cur_id - 1
-        id_picture_f = str(scene_pictures[cur_id])
-        id_text_f = str(scene_texts[cur_id])
-        id_picture_p = str(scene_pictures[cur_id - 2])
-        id_text_p = str(scene_texts[cur_id - 2])
-        button_slide_p(keyboard, '<<<', prev_id, id_picture_p, id_text_p)
-        button_slide_f(keyboard, '>>>', next_id, id_picture_f, id_text_f)
-
-    return keyboard.as_markup()
+        return keyboard.as_markup()
 
 
 def button_slide_f(keyboard: InlineKeyboardBuilder, text: str, next_id: int, id_picture_f: str, id_text_f: str):

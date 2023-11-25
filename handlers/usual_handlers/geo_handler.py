@@ -3,7 +3,7 @@ from aiogram.types import Message
 from aiogram import Router, Bot, F
 from keyboards import navikeyboard
 from functions import point_time, rite_user_state, get_distance
-from aiogram.filters import Command
+
 
 db = DataBase()
 geo_router = Router()
@@ -27,8 +27,6 @@ async def get_geo(message: Message, bot: Bot):
 
             current_state = str(1)
             rite_user_state(current_state, message)
-            point_state = int(db.load_state(message.from_user.id)[0])
-            print(point_state)
             point_time('point1', message)
             id_picture = int(2)
             picture = db.get_picture(id_picture)[0]
@@ -37,10 +35,11 @@ async def get_geo(message: Message, bot: Bot):
             scene1_pic_list = [2, 3, 2, 3, 2, 3, 2]
             scene1_text_list = [2, 3, 4, 5, 6, 7, 8]
             cur_id = 1
+            scene_id = 1
             # await bot.send_photo(message.from_user.id, photo=picture, caption=text,
             #                      )
             await bot.send_photo(message.from_user.id, photo=picture, caption=text,
-                                 reply_markup=navikeyboard(scene1_pic_list, scene1_text_list, cur_id))
+                                 reply_markup=navikeyboard(scene1_pic_list, scene1_text_list, cur_id, scene_id))
 
         else:
             distance = format(distance, '.2f')
