@@ -8,6 +8,14 @@ class NavigationCB(CallbackData, prefix='types'):
     text_id: str
 
 
+class HistoryReferenceCB(CallbackData, prefix='reference'):
+    menu: str
+    reference_name: str
+
+
+class BackBTN(CallbackData, prefix='backbtn'):
+    back: str
+
 # class UserCB(CallbackData, prefix='user'):
 #     button: str
 #     user_id: int
