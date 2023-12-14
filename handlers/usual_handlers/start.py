@@ -25,7 +25,8 @@ async def mes_start(message: Message, bot: Bot):
         picture = db.get_picture(id_picture)[0]
         id_text = int(1)
         text = db.get_text(id_text)[0]
-        await bot.send_photo(message.from_user.id, photo=picture, caption=text, reply_markup=ikb_first_point())
+        await bot.send_photo(message.from_user.id, photo=picture, caption=text)
+        await bot.send_message(message.from_user.id,  text=db.get_text(20)[0], reply_markup=ikb_first_point())
         # await bot.send_location(message.from_user.id, latitude=55.107270, longitude=38.763697, reply_markup=geo_kb())
     else:
         pass
