@@ -4,6 +4,6 @@ from aiogram.types import KeyboardButton
 
 def geo_kb():
     keyboard = KeyboardBuilder(KeyboardButton)
-    loca_but = KeyboardButton(text='LOCA', request_location=True)
+    loca_but = KeyboardButton(text='МОЁ МЕСТОПОЛОЖЕНИЕ', request_location=True)
     keyboard.add(loca_but)
     return keyboard.as_markup(resize_keyboard=True, one_time_keyboard=True)
