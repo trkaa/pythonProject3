@@ -38,7 +38,7 @@ async def get_geo(message: Message, bot: Bot):
     s = int(db.load_state(message.from_user.id)[0])
     if s == 0:
         distance = get_distance(point_1, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(1)
             rite_user_state(current_state, message)
             point_time('point1', message)
@@ -58,7 +58,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 1:
         distance = get_distance(point_2, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(2)
             scene_id = 2
             rite_user_state(current_state, message)
@@ -78,7 +78,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 2:
         distance = get_distance(point_3, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             user_id = message.from_user.id
             seller = str(db.load_seller(user_id)[0])
             if seller == 'any':
@@ -111,7 +111,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 3:
         distance = get_distance(point_4, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(4)
             scene_id = 4
             rite_user_state(current_state, message)
@@ -131,7 +131,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 4:
         distance = get_distance(point_5, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(5)
             scene_id = 5
             rite_user_state(current_state, message)
@@ -151,7 +151,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 5:
         distance = get_distance(point_6, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(6)
             scene_id = 6
             rite_user_state(current_state, message)
@@ -171,7 +171,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 6:
         distance = get_distance(point_7, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(7)
             scene_id = 7
             rite_user_state(current_state, message)
@@ -191,7 +191,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 7:
         distance = get_distance(point_8, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(8)
             scene_id = 8
             rite_user_state(current_state, message)
@@ -211,7 +211,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 8:
         distance = get_distance(point_9, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(9)
             scene_id = 9
             rite_user_state(current_state, message)
@@ -231,7 +231,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 9:
         distance = get_distance(point_10, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(10)
             scene_id = 10
             rite_user_state(current_state, message)
@@ -251,7 +251,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 10:
         distance = get_distance(point_11, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(11)
             scene_id = 11
             rite_user_state(current_state, message)
@@ -271,7 +271,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 11:
         distance = get_distance(point_12, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(12)
             scene_id = 12
             rite_user_state(current_state, message)
@@ -291,7 +291,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 12:
         distance = get_distance(point_13, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point13', message)
             scene_pic_list = scene13_pic_list
@@ -311,7 +311,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 13:
         distance = get_distance(point_14, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point14', message)
             scene_pic_list = scene14_pic_list
@@ -332,7 +332,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 14:
         distance = get_distance(point_15, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point15', message)
             scene_pic_list = scene15_pic_list
@@ -353,7 +353,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 15:
         distance = get_distance(point_16, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point16', message)
             scene_pic_list = scene16_pic_list
@@ -374,7 +374,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 16:
         distance = get_distance(point_17, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point17', message)
             scene_pic_list = scene17_pic_list
@@ -395,7 +395,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 17:
         distance = get_distance(point_18, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point18', message)
             scene_pic_list = scene18_pic_list
@@ -416,7 +416,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 18:
         distance = get_distance(point_19, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point19', message)
             scene_pic_list = scene19_pic_list
@@ -437,7 +437,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 19:
         distance = get_distance(point_20, message)
-        if distance < float(1000000000.0):
+        if distance < float(20.0):
             current_state = str(s + 1)
             point_time('point20', message)
             scene_pic_list = scene20_pic_list
