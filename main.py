@@ -1,15 +1,20 @@
 import os
 import asyncio
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.methods import DeleteWebhook
 from settings import *
 from database import DataBase
 from handlers import handlers_routers
+from FSM import all_fsm_routers
+from handlers.inlinehandlers.purchase import process_pre_checkout_query, process_pay
+from aiogram.types import ContentType
 
 db = DataBase()
 bot = Bot(os.getenv('TOKEN'))
 dp = Dispatcher()
-dp.include_routers(handlers_routers)
+dp.include_routers(handlers_routers, all_fsm_routers)
+dp.pre_checkout_query.register(process_pre_checkout_query)
+dp.message.register(process_pay, F.content_type == ContentType.SUCCESSFUL_PAYMENT)
 
 
 async def start_bot():

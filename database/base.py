@@ -30,7 +30,8 @@ class DataBase:
         INTEGER , name VARCHAR, intro_checkpoint VARCHAR, point1 VARCHAR, point2 VARCHAR, point3 VARCHAR, 
         point4 VARCHAR, point5 VARCHAR, point6 VARCHAR, point7 VARCHAR, point8 VARCHAR, point9 VARCHAR, 
         point10 VARCHAR, point11 VARCHAR, point12 VARCHAR, point13 VARCHAR, point14 VARCHAR, point15 VARCHAR, 
-        point16 VARCHAR, point17 VARCHAR, point18 VARCHAR, point19 VARCHAR, point20 VARCHAR, user_state VARCHAR)'''
+        point16 VARCHAR, point17 VARCHAR, point18 VARCHAR, point19 VARCHAR, point20 VARCHAR, user_state VARCHAR, 
+        sell_price VARCHAR, seller VARCHAR, pay_time VARCHAR)'''
         self.execute(sql, commit=True)
 
     def create_table_text(self):
@@ -78,3 +79,51 @@ class DataBase:
         parameters = (id_text,)
         sql = '''SELECT text FROM quest_text WHERE id_text=?'''
         return self.execute(sql, parameters, fetchone=True)
+
+    def write_promo(self, seller_promo_code: str):
+        parameters = (seller_promo_code,)
+        sql = '''INSERT INTO promo_code (code) VALUES (?)'''
+        self.execute(sql, parameters, commit=True)
+
+    def load_code(self):
+        # parameters = (user_id,)
+        sql = '''SELECT * FROM promo_code'''
+        return self.execute(sql, fetchall=True)
+
+    def clear_code(self, id_code: int):
+        parameters = (id_code,)
+        sql = '''DELETE FROM promo_code WHERE id=?'''
+        self.execute(sql, parameters, commit=True)
+
+    def write_sell_price(self, user_price: tuple):
+        sql = '''UPDATE check_points SET sell_price=? WHERE telegram_id=? '''
+        self.execute(sql, user_price, commit=True)
+
+    def write_seller(self, user_seller: tuple):
+        sql = '''UPDATE check_points SET seller=? WHERE telegram_id=? '''
+        self.execute(sql, user_seller, commit=True)
+
+    def write_sell_price_seller(self, user_price_seller: tuple):
+        sql = '''UPDATE check_points SET sell_price=?, seller=? WHERE telegram_id=?  '''
+        self.execute(sql, user_price_seller, commit=True)
+
+    def load_price(self, user_id: int):
+        parameters = (user_id,)
+        sql = '''SELECT sell_price FROM check_points WHERE telegram_id=?'''
+        return self.execute(sql, parameters, fetchone=True)
+
+    def load_seller(self, user_id: int):
+        parameters = (user_id,)
+        sql = '''SELECT seller FROM check_points WHERE telegram_id=?'''
+        return self.execute(sql, parameters, fetchone=True)
+
+    def pay_time(self, user_time: tuple):
+        sql = f'''UPDATE check_points SET pay_time=? WHERE telegram_id=? '''
+        self.execute(sql, user_time, commit=True)
+
+    def seller_table_insert(self, seller_table: str, seller_tuple: tuple):
+        sql = f'''INSERT INTO {seller_table} (telegram_id, name, sell_time, price) VALUES (?, ?, ?, ?)'''
+        self.execute(sql, seller_tuple, commit=True)
+
+
+

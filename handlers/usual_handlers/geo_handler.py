@@ -1,7 +1,7 @@
 from database import DataBase
 from aiogram.types import Message
 from aiogram import Router, Bot, F
-from keyboards import navikeyboard
+from keyboards import navikeyboard, ikb_promo_input_start_ikb, ikb_final_sale
 from functions import point_time, rite_user_state, get_distance
 from lists import scene1_pic_list, scene1_text_list, scene2_pic_list, scene2_text_list, scene3_pic_list,\
     scene3_text_list, scene4_text_list, scene4_pic_list, scene5_text_list, scene5_pic_list, scene6_text_list,\
@@ -36,9 +36,9 @@ async def get_geo(message: Message, bot: Bot):
             current_state = str(1)
             rite_user_state(current_state, message)
             point_time('point1', message)
-            id_picture = int(8)
+            id_picture = scene1_pic_list[0]
             picture = db.get_picture(id_picture)[0]
-            id_text = int(29)
+            id_text = scene1_text_list[0]
             text = db.get_text(id_text)[0]
             scene_pic_list = scene1_pic_list
             scene_text_list = scene1_text_list
@@ -73,19 +73,32 @@ async def get_geo(message: Message, bot: Bot):
     if s == 2:
         distance = get_distance(point_3, message)
         if distance < float(1000000000.0):
-            current_state = str(3)
-            scene_id = 3
-            rite_user_state(current_state, message)
-            point_time('point3', message)
-            id_picture = int(9)
-            picture = db.get_picture(id_picture)[0]
-            id_text = int(30)
-            text = db.get_text(id_text)[0]
-            scene_pic_list = scene3_pic_list
-            scene_text_list = scene3_text_list
-            cur_id = 1
-            await bot.send_photo(message.from_user.id, photo=picture, caption=text,
-                                 reply_markup=navikeyboard(scene_pic_list, scene_text_list, cur_id, scene_id))
+            user_id = message.from_user.id
+            seller = str(db.load_seller(user_id)[0])
+            if seller == 'any':
+                id_picture = int(113)
+                picture = db.get_picture(id_picture)[0]
+                await bot.send_message(message.from_user.id, text=f'Продолжить квест можно после оплаты.')
+                await bot.send_photo(message.from_user.id, photo=picture, reply_markup=ikb_final_sale())
+            else:
+                id_picture = int(113)
+                picture = db.get_picture(id_picture)[0]
+                await bot.send_message(message.from_user.id, text=f'Продолжить квест можно после оплаты.')
+                await bot.send_photo(message.from_user.id, photo=picture, reply_markup=ikb_promo_input_start_ikb())
+
+            # current_state = str(3)
+            # scene_id = 3
+            # rite_user_state(current_state, message)
+            # point_time('point3', message)
+            # id_picture = int(9)
+            # picture = db.get_picture(id_picture)[0]
+            # id_text = int(30)
+            # text = db.get_text(id_text)[0]
+            # scene_pic_list = scene3_pic_list
+            # scene_text_list = scene3_text_list
+            # cur_id = 1
+            # await bot.send_photo(message.from_user.id, photo=picture, caption=text,
+            #                      reply_markup=navikeyboard(scene_pic_list, scene_text_list, cur_id, scene_id))
         else:
             distance = format(distance, '.2f')
             await bot.send_message(message.from_user.id, text=f'До точки {distance} метров.')

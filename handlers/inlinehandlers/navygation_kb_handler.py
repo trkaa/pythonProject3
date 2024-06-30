@@ -1317,98 +1317,98 @@ async def reference_back_button(callback: CallbackQuery, bot: Bot):
 @navy_kb_router.callback_query(BackBTN.filter(F.back))
 async def reference_keyboard_audio_load_button(callback: CallbackQuery, callback_data: BackBTN, bot: Bot):
     if callback_data.back == 'sviblova':
-        audio = 'CQACAgIAAxkBAAIBZWViSieiVOcoiyEIruPxsPlBM_8qAAKwQwAC2IoQSwx5s-rtZBClMwQ'
+        audio = 'CQACAgIAAxkBAAIJV2Z8QNR0cxsX4CYzIdPgr7OlWxcdAAIHVgACEdDhSwqbfHi_ulNqNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'schemilovo':
-        audio = 'CQACAgIAAxkBAAICuWVpC_0XjYwIHoOUqQTPZ4ONVuWdAAJlNgACnFhIS0Xil75ICtxzMwQ'
+        audio = 'CQACAgIAAxkBAAIJW2Z8QVTa4jUnD1Q1693bBjcYaG0GAAIPVgACEdDhSzyPD1CqMHWYNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'pyatnica':
-        audio = 'CQACAgIAAxkBAAIC_2VqHaoS4rMEuXYqt_CvzLiwGyQMAAJmPQACnFhQS0dM3Y6GMMeEMwQ'
+        audio = 'CQACAgIAAxkBAAIJX2Z8QcALOCj_oGx4mniUmU7wDUwCAAIbVgACEdDhS2_1-7On3WX0NQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'pischalnik':
-        audio = 'CQACAgIAAxkBAAIDD2VqKhZnW7ot4FYqrYtRYheRV2A8AALtPQACnFhQS3MCUepDL4mhMwQ'
+        audio = 'CQACAgIAAxkBAAIJY2Z8QicRr8j_f7h660_FlvIq1oO_AAIiVgACEdDhS_Os_wO0MhMaNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'krest_church':
-        audio = 'CQACAgIAAxkBAAIDJWVqfrSav5TuglxaNB1HvM5GyDsxAAJiPwACnFhQS6luBp-JEPCAMwQ'
+        audio = 'CQACAgIAAxkBAAIJZWZ8QpFCQclS_g02D5rk26rq1E-7AAIqVgACEdDhS7NURre82l-LNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'konung_palace':
-        audio = 'CQACAgIAAxkBAAIDWmVrdsiHgHEkYnsevsT3WBddBUqAAAJWPAACm59gSyaqwlq5YrReMwQ'
+        audio = 'CQACAgIAAxkBAAIJaWZ8QyXl_coXuKsy-gopXmb7YQmJAAIyVgACEdDhSyWlEzCbB4anNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'uspenskiy':
-        audio = 'CQACAgIAAxkBAAIDjmVrm3_Qydr9gq26zaj3Iql6pq2CAAJePwACm59gSwLkJ7M7_eK_MwQ'
+        audio = 'CQACAgIAAxkBAAIJbWZ8Q4YuwnsujCRFGNkEoq2bVL18AAI2VgACEdDhSza_-EAfJcetNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'kolokolnya':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJdGZ8TRUCA1JScRc0Mrl5jf_H8ZDMAALBVgACEdDhS-6vuYyGBBlVNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'episcop':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJeGZ8TXtbJ0qfTHXXE2-PXDi6qKcnAALMVgACEdDhS_XvP8PYliWeNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'sad':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJfGZ8Tc7BHWI0O27bYUbMeTqLMeWRAALVVgACEdDhS-RkHqHI3X_7NQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'bride':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJgGZ8Tj0jBn2Sga-OhGhEHE9LtiJRAALeVgACEdDhS-TuZYU3k2sMNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'yamscaya':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJhGZ8ToxPPcWtWkBL-jb7AzkctBeYAALmVgACEdDhS9R2L10wv41fNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'kolomna':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJiGZ8T3SG2nu4DPbDENMtVh73-caMAAL8VgACEdDhSxgAAYwfgWclQjUE'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'ivanovskie':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJsWZ9MYsMjsL1lkeDXtEYGKyVzaWOAALwTgACEdDpS5btZyxHRxEyNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'stone':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJjGZ8T76dibK8yNTtU58RuDOAgbE9AANXAAIR0OFLOUoTlukjp0E1BA'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'reforma':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJkWZ8UPfvN0cdQaMZxgoQtH_zDIa5AAIMVwACEdDhSz6sYy2x7bWONQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'brus':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJl2Z8UWCe2ZJnV4rbh6uXUTbwkW4OAAJURwACEdDpSxFIPuAWgFjNNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'uspenia':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJm2Z8Ua8YThnZMPql3WfXjNF4zUP5AAJVRwACEdDpS81DBRG1-mfvNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'gran':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJn2Z8UfLcnR-dcRyd05Ao79l_bZdkAAJbRwACEdDpS51ho_ukjpwwNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'marina':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJpWZ8UoJSMUdC__WvLb2Bbdo25pr8AAJeRwACEdDpS2jn0csQSlgLNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
     if callback_data.back == 'down':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJpmZ8Ur_HhwLW6oOSJOjyheSSa1LTAAJlRwACEdDpS3bET52R_IG4NQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'prison':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJp2Z8Uv3qEKDj1KbxXuO9LFS3dYvBAAJrRwACEdDpS0Kr10npzTlYNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'kosiye':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJq2Z8U3brFK1gKv7vPQP8Z2o3RJGIAAJ5RwACEdDpS-PT7i_gHnKwNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
     if callback_data.back == 'vorotinskiy':
-        audio = 'CQACAgIAAxkBAAID_GVsvrmfHn5alkyMAU8r9tLlXgK7AAKvQAACledoS4L-MSmFn18LMwQ'
+        audio = 'CQACAgIAAxkBAAIJrGZ8U5Zr5hyf5z7hwwdEfUHgqKQJAAKARwACEdDpS6F9dgx7sJCoNQQ'
         await bot.send_audio(audio=audio, chat_id=callback.message.chat.id)
 
 

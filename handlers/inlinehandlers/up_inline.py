@@ -1,7 +1,7 @@
 from database import DataBase
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
-from aiogram import Router, Bot
+from aiogram import Router, Bot, F
 from keyboards import navikeyboard, geo_kb
 from geo_points import point_1
 from lists import scene1_pic_list, scene1_text_list, scene2_pic_list, scene2_text_list, scene3_pic_list, \
@@ -13,10 +13,10 @@ from lists import scene1_pic_list, scene1_text_list, scene2_pic_list, scene2_tex
     scene18_text_list, scene19_pic_list, scene19_text_list, scene20_pic_list, scene20_text_list
 
 db = DataBase()
-up_router = Router()
+up_inline_router = Router()
 
 
-@up_router.message(Command('up'))
+@up_inline_router.callback_query(F.data == 'up')
 async def up_bot(message: Message, bot: Bot):
     s = int(db.load_state(message.from_user.id)[0])
     if s == 0:
@@ -24,9 +24,9 @@ async def up_bot(message: Message, bot: Bot):
                                 reply_markup=geo_kb())
 
     if s == 1:
-        id_picture = scene1_pic_list[0]
+        id_picture = int(8)
         picture = db.get_picture(id_picture)[0]
-        id_text = scene1_text_list[0]
+        id_text = int(29)
         text = db.get_text(id_text)[0]
         scene_pic_list = scene1_pic_list
         scene_text_list = scene1_text_list
@@ -61,7 +61,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 4:
         scene_id = 4
-        id_picture = int(150)
+        id_picture = int(22)
         picture = db.get_picture(id_picture)[0]
         id_text = int(66)
         text = db.get_text(id_text)[0]
@@ -73,7 +73,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 5:
         scene_id = 5
-        id_picture = int(164)
+        id_picture = int(30)
         picture = db.get_picture(id_picture)[0]
         id_text = int(86)
         text = db.get_text(id_text)[0]
@@ -85,7 +85,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 6:
         scene_id = 6
-        id_picture = int(170)
+        id_picture = int(3)
         picture = db.get_picture(id_picture)[0]
         id_text = int(99)
         text = db.get_text(id_text)[0]
@@ -97,7 +97,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 7:
         scene_id = 7
-        id_picture = int(176)
+        id_picture = int(2)
         picture = db.get_picture(id_picture)[0]
         id_text = int(117)
         text = db.get_text(id_text)[0]
@@ -109,7 +109,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 8:
         scene_id = 8
-        id_picture = int(179)
+        id_picture = int(49)
         picture = db.get_picture(id_picture)[0]
         id_text = int(127)
         text = db.get_text(id_text)[0]
@@ -121,7 +121,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 9:
         scene_id = 9
-        id_picture = int(181)
+        id_picture = int(2)
         picture = db.get_picture(id_picture)[0]
         id_text = int(141)
         text = db.get_text(id_text)[0]
@@ -133,7 +133,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 10:
         scene_id = 10
-        id_picture = int(190)
+        id_picture = int(64)
         picture = db.get_picture(id_picture)[0]
         id_text = int(157)
         text = db.get_text(id_text)[0]
@@ -145,7 +145,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 11:
         scene_id = 11
-        id_picture = int(193)
+        id_picture = int(3)
         picture = db.get_picture(id_picture)[0]
         id_text = int(195)
         text = db.get_text(id_text)[0]
@@ -157,7 +157,7 @@ async def up_bot(message: Message, bot: Bot):
 
     if s == 12:
         scene_id = 12
-        id_picture = int(195)
+        id_picture = int(3)
         picture = db.get_picture(id_picture)[0]
         id_text = int(200)
         text = db.get_text(id_text)[0]
