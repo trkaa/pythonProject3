@@ -1,30 +1,36 @@
 from database import DataBase
+import os
 from aiogram.types import Message
 from aiogram import Router, Bot, F
 from keyboards import navikeyboard, ikb_promo_input_start_ikb, ikb_final_sale
 from functions import point_time, rite_user_state, get_distance
-from lists import scene1_pic_list, scene1_text_list, scene2_pic_list, scene2_text_list, scene3_pic_list,\
-    scene3_text_list, scene4_text_list, scene4_pic_list, scene5_text_list, scene5_pic_list, scene6_text_list,\
-    scene6_pic_list, scene7_text_list, scene7_pic_list, scene8_text_list, scene8_pic_list, scene9_text_list,\
-    scene9_pic_list, scene10_text_list, scene10_pic_list, scene11_pic_list, scene11_text_list, scene12_pic_list,\
-    scene12_text_list, scene13_pic_list, scene13_text_list, scene14_pic_list, scene14_text_list, scene15_pic_list,\
-    scene15_text_list, scene16_text_list, scene16_pic_list, scene17_pic_list, scene17_text_list, scene18_pic_list,\
+from lists import scene1_pic_list, scene1_text_list, scene2_pic_list, scene2_text_list, scene3_pic_list, \
+    scene3_text_list, scene4_text_list, scene4_pic_list, scene5_text_list, scene5_pic_list, scene6_text_list, \
+    scene6_pic_list, scene7_text_list, scene7_pic_list, scene8_text_list, scene8_pic_list, scene9_text_list, \
+    scene9_pic_list, scene10_text_list, scene10_pic_list, scene11_pic_list, scene11_text_list, scene12_pic_list, \
+    scene12_text_list, scene13_pic_list, scene13_text_list, scene14_pic_list, scene14_text_list, scene15_pic_list, \
+    scene15_text_list, scene16_text_list, scene16_pic_list, scene17_pic_list, scene17_text_list, scene18_pic_list, \
     scene18_text_list, scene19_pic_list, scene19_text_list, scene20_pic_list, scene20_text_list
-from geo_points import point_1, point_2, point_3, point_4, point_5, point_6, point_7, point_8, point_9, point_10,\
+from geo_points import point_1, point_2, point_3, point_4, point_5, point_6, point_7, point_8, point_9, point_10, \
     point_11, point_12, point_13, point_14, point_15, point_16, point_17, point_18, point_19, point_20
 
 db = DataBase()
 geo_router = Router()
+master_id = os.getenv('MASTER_ID')
 
 
 @geo_router.message(F.photo)
 async def catch_photo(message: Message):
-    print(message.photo[-1].file_id)
+    user_id = message.from_user.id
+    if int(master_id) == int(user_id):
+        print(message.photo[-1].file_id)
 
 
 @geo_router.message(F.audio)
 async def catch_audio(message: Message):
-    print(message.audio)
+    user_id = message.from_user.id
+    if int(master_id) == int(user_id):
+        print(message.audio)
 
 
 @geo_router.message(F.location)
@@ -110,7 +116,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 4
             rite_user_state(current_state, message)
             point_time('point4', message)
-            id_picture = int(22)
+            id_picture = int(150)
             picture = db.get_picture(id_picture)[0]
             id_text = int(66)
             text = db.get_text(id_text)[0]
@@ -130,7 +136,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 5
             rite_user_state(current_state, message)
             point_time('point5', message)
-            id_picture = int(30)
+            id_picture = int(164)
             picture = db.get_picture(id_picture)[0]
             id_text = int(86)
             text = db.get_text(id_text)[0]
@@ -150,7 +156,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 6
             rite_user_state(current_state, message)
             point_time('point6', message)
-            id_picture = int(3)
+            id_picture = int(170)
             picture = db.get_picture(id_picture)[0]
             id_text = int(99)
             text = db.get_text(id_text)[0]
@@ -170,7 +176,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 7
             rite_user_state(current_state, message)
             point_time('point7', message)
-            id_picture = int(2)
+            id_picture = int(176)
             picture = db.get_picture(id_picture)[0]
             id_text = int(117)
             text = db.get_text(id_text)[0]
@@ -190,7 +196,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 8
             rite_user_state(current_state, message)
             point_time('point8', message)
-            id_picture = int(49)
+            id_picture = int(179)
             picture = db.get_picture(id_picture)[0]
             id_text = int(127)
             text = db.get_text(id_text)[0]
@@ -210,7 +216,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 9
             rite_user_state(current_state, message)
             point_time('point9', message)
-            id_picture = int(2)
+            id_picture = int(181)
             picture = db.get_picture(id_picture)[0]
             id_text = int(141)
             text = db.get_text(id_text)[0]
@@ -230,7 +236,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 10
             rite_user_state(current_state, message)
             point_time('point10', message)
-            id_picture = int(64)
+            id_picture = int(190)
             picture = db.get_picture(id_picture)[0]
             id_text = int(157)
             text = db.get_text(id_text)[0]
@@ -250,7 +256,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 11
             rite_user_state(current_state, message)
             point_time('point11', message)
-            id_picture = int(3)
+            id_picture = int(193)
             picture = db.get_picture(id_picture)[0]
             id_text = int(195)
             text = db.get_text(id_text)[0]
@@ -270,7 +276,7 @@ async def get_geo(message: Message, bot: Bot):
             scene_id = 12
             rite_user_state(current_state, message)
             point_time('point12', message)
-            id_picture = int(3)
+            id_picture = int(195)
             picture = db.get_picture(id_picture)[0]
             id_text = int(200)
             text = db.get_text(id_text)[0]
@@ -286,7 +292,7 @@ async def get_geo(message: Message, bot: Bot):
     if s == 12:
         distance = get_distance(point_13, message)
         if distance < float(1000000000.0):
-            current_state = str(s+1)
+            current_state = str(s + 1)
             point_time('point13', message)
             scene_pic_list = scene13_pic_list
             scene_text_list = scene13_text_list
@@ -306,7 +312,7 @@ async def get_geo(message: Message, bot: Bot):
     if s == 13:
         distance = get_distance(point_14, message)
         if distance < float(1000000000.0):
-            current_state = str(s+1)
+            current_state = str(s + 1)
             point_time('point14', message)
             scene_pic_list = scene14_pic_list
             scene_text_list = scene14_text_list
@@ -449,6 +455,3 @@ async def get_geo(message: Message, bot: Bot):
         else:
             distance = format(distance, '.2f')
             await bot.send_message(message.from_user.id, text=f'До точки {distance} метров.')
-
-
-

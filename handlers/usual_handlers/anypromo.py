@@ -27,5 +27,6 @@ async def get_freepromo(message: Message, bot: Bot):
         seller_name = str('free')
         seller_promo_code = str(seller_name + get_code())
         db.write_promo(seller_promo_code)
+        await bot.send_message(message.from_user.id, text=seller_promo_code)
     else:
         pass

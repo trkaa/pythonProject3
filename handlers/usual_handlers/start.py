@@ -43,7 +43,7 @@ async def mes_start_deep_link(message: Message, bot: Bot):
     #
     #     await bot.send_message(message.from_user.id, text='Вы хотите начать квест заново? \n (потребуется '
     #                                                       'новая оплата)', reply_markup=ikb_second_buy())
-        # pass
+    # pass
 
 
 @start_router.message(Command('start'))
@@ -73,14 +73,9 @@ async def mes_start(message: Message, bot: Bot):
         text = db.get_text(id_text)[0]
         await bot.send_photo(message.from_user.id, photo=picture, caption=text)
         await bot.send_message(message.from_user.id, text=db.get_text(20)[0], reply_markup=ikb_first_point())
-    #     id_picture = int(113)
-    #     picture = db.get_picture(id_picture)[0]
-    #     await bot.send_photo(message.from_user.id, photo=picture, reply_markup=ikb_promo_input_start_ikb())
-    # else:
-    #     await bot.send_message(message.from_user.id, text='Вы хотите начать квест заново? \n (потребуется '
-    #                                                       'новая оплата)', reply_markup=ikb_second_buy_promo())
-
-
+    else:
+        await bot.send_message(message.from_user.id, text='Вы хотите начать квест заново? \n (потребуется '
+                                                          'новая оплата)', reply_markup=ikb_second_buy_promo())
 
 # @start_router.message(Command('start'))
 # async def mes_start(message: Message, bot: Bot):
