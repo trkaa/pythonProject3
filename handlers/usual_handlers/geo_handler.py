@@ -172,7 +172,7 @@ async def get_geo(message: Message, bot: Bot):
 
     if s == 6:
         distance = get_distance(point_7, message)
-        if distance < float(20.0):
+        if distance < float(30.0):
             current_state = str(7)
             scene_id = 7
             rite_user_state(current_state, message)
