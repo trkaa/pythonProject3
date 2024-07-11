@@ -20,10 +20,11 @@ master_id = os.getenv('MASTER_ID')
 
 
 @geo_router.message(F.photo)
-async def catch_photo(message: Message):
+async def catch_photo(message: Message, bot: Bot):
     user_id = message.from_user.id
     if int(master_id) == int(user_id):
-        print(message.photo[-1].file_id)
+        # print(message.photo[-1].file_id)
+        await bot.send_message(message.from_user.id, message.photo[-1].file_id)
 
 
 @geo_router.message(F.audio)
