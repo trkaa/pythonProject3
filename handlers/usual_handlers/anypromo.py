@@ -30,3 +30,15 @@ async def get_freepromo(message: Message, bot: Bot):
         await bot.send_message(message.from_user.id, text=seller_promo_code)
     else:
         pass
+
+
+@anypromo_router.message(Command('ligapromo'))
+async def get_freepromo(message: Message, bot: Bot):
+    user_id = message.from_user.id
+    if int(5224860941) == int(user_id):
+        seller_name = str('liga')
+        seller_promo_code = str(seller_name + get_code())
+        db.write_promo(seller_promo_code)
+        await bot.send_message(message.from_user.id, text=seller_promo_code)
+    else:
+        pass

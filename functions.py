@@ -88,3 +88,7 @@ def insert_seller_table(message: Message):
         # print(seller_tuple)
         # print(seller_table)
         db.seller_table_insert(seller_table, seller_tuple)
+    if load_seller == 'liga':
+        seller_table = 'liga'
+        seller_tuple = (telegram_id, name, time, price)
+        db.seller_table_insert(seller_table, seller_tuple)
